@@ -1,5 +1,5 @@
 .navbar{
-    padding-left: 70%;
+    padding-left: 50%;
     background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.7273503151260504) 50%, rgba(252,176,69,1) 100%);
     font-size: 30px;
     font-weight: bold;
@@ -12,10 +12,11 @@
     margin-bottom: 10px;
 }
 
-.citySearch {
+.city-search {
     margin: 10px;
-    font-size: 23px;
-    font-weight: bold;
+    border: 2px solid black;
+    padding-left: 10px;
+    border-radius: 10px;
 }
 
 .btn-primary {
@@ -25,4 +26,9 @@
 
 .card {
     margin-left: 10px;
+    background: rgb(255, 199, 255);
+    border: none;
+    font-size: 14px;
+    padding: 15px;
+    flex-wrap: column wrap;
 }
