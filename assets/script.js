@@ -12,3 +12,9 @@ var geoURL = `http://api.openweathermap.org/geo/1.0/direct?q="${userSearchEl}"&l
 var curURL = `https://api.openweathermap.org/data/2.5/weather?lat=${cityLat}&lon=${cityLon}&units=imperial&lastupdate&appid=ede68cfb4c128831ac4e54c459f93d77`
 var fiveDayURL = `api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=ede68cfb4c128831ac4e54c459f93d77`
 
+function getCityWeather(event) {
+    event.preventDefault();
+    var cityInput = userSearchEl.value
+    currentWeather(cityInput);
+    console.log(currentDate);
+}

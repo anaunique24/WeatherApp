@@ -13,69 +13,82 @@
 
 <body>
     <header class="navbar">Weather Dashboard</header>
-        <main class="container-fluid">
-          <div class="row">
-            <div class="col-12 col-lg-3">
-              <form id="cityForm">
-                <fieldset>
-                  <div id="citySearch" class="mb-3">
-                    <h4>Search for a City</h4>
-                    <input type="text" id="q" name="q" class="form-control" placeholder="Search Location">
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Search</button>
+        <main class="container-fluid col-12">
+            <div class="row">
+                <div class="col col-lg-3 d-inline-block ">
+                    <form id="search-form">
+                        <fieldset>
+                            <h1 class="city-search">Search for a city:</h1>
+                            <div class="mb-3">
+                                <input type="text" id="q" name="search" class="form-control" placeholder="">
+                            </div>
+    
+                            <button type="submit" class="btn btn-primary" id="btn btn-primary"
+                                style="width: 100%; margin-bottom: 10px;">Search</button>
+                            <h6 class="search-header">Recent Searches</h6>
+                            <div class="mb-3">
+                                <class type="text" id="past-search">
+    
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+    
+                <div class="card-main" style="width: 66%">
+                    <div class="city-search">
+                        <h3 class="city">City</h3>
+                        <p class="Temp">Temperature:</p>
+                        <p class="Temp">Temp:</p>
+                        <p class="Wind">Wind:</p>
+                        <p class="Humidity">Humidity:</p>
                     </div>
-                </fieldset>
-              </form>
-            </div>
-       
-        <div class="card-main" style="width: 66%">
-            <div id="cityInput">
-                <h3 class="city">City</h3>
-                <p class="Temp">Temp:</p>
-                <p class="Wind">Wind:</p>
-                <p class="Humidity">Humidity:</p>
-            </div>
-        </div>
+                </div>
 
-        <div class="card" style="width: 13%;  margin-top: 20px; margin-left: 25%; ">
-            <div id="five-day">
-                <h4 class="city">""</h3>
-                <p class="Temp">Temp:</p>
-                <p class="Wind">Wind:</p>
-                <p class="Humidity">Humidity:</p>
-            </div>
-        </div>
-        <div class="card" style="width: 13%;  margin-top: 20px;">
-            <div id="five-day">
-                <h4 class="city">""</h3>
-                <p class="Temp">Temp:</p>
-                <p class="Wind">Wind:</p>
-                <p class="Humidity">Humidity:</p>
-            </div>
-        </div>
-        <div class="card" style="width: 13%;  margin-top: 20px;">
-            <div id="five-day">
-                <h4 class="city">""</h3>
-                <p class="Temp">Temp:</p>
-                <p class="Wind">Wind:</p>
-                <p class="Humidity">Humidity:</p>
-            </div>
-        </div>
-        <div class="card" style="width: 13%; margin-top: 20px;">
-            <div id="five-day">
-                <h4 class="city">""</h3>
-                <p class="Temp">Temp:</p>
-                <p class="Wind">Wind:</p>
-                <p class="Humidity">Humidity:</p>
-            </div>
-        </div>
-        <div class="card" style="width: 13%; margin-top: 20px;">
-            <div id="five-day">
-                <h4 class="city">""</h3>
-                <p class="Temp">Temp:</p>
-                <p class="Wind">Wind:</p>
-                <p class="Humidity">Humidity:</p>
-            </div>
-        </div>
+                <div class="card" style="width: 13%;  margin-top: 20px; margin-left: 25%;">
+                    <div class="card" style="width: 13%;  margin-top: 20px; margin-left: 25%; ">
+                        <div class="five-day">
+                            <h4 class="city">""</h3>
+                            <p class="Temp">Temperature:</p>
+                            <p class="Temp">Temp:</p>
+                            <p class="Wind">Wind:</p>
+                            <p class="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 13%;  margin-top: 20px;">
+                        <div class="five-day">
+                            <h4 class="city">""</h3>
+                            <p class="Temp">Temperature:</p>
+                            <p class="Temp">Temp:</p>
+                            <p class="Wind">Wind:</p>
+                            <p class="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 13%;  margin-top: 20px;">
+                        <div class="five-day">
+                            <h4 class="city">""</h3>
+                            <p class="Temp">Temperature:</p>
+                            <p class="Temp">Temp:</p>
+                            <p class="Wind">Wind:</p>
+                            <p class="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 13%; margin-top: 20px;">
+                        <div class="five-day">
+                            <h4 class="city">""</h3>
+                            <p class="Temp">Temperature:</p>
+                            <p class="Temp">Temp:</p>
+                            <p class="Wind">Wind:</p>
+                            <p class="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 13%; margin-top: 20px;">
+                        <div class="five-day">
+                            <h4 class="city">""</h3>
+                            <p class="Temp">Temperature:</p>
+                            <p class="Temp">Temp:</p>
+                            <p class="Wind">Wind:</p>
+                            <p class="Humidity">Humidity:</p>
+                        </div>
 
     </main>
 <script src="./assets/script.js"></script>
