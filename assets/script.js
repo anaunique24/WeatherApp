@@ -8,9 +8,6 @@ var fiveDay = document.querySelector('#five-day');
 var cityLat = 41.85;
 var cityLon = -87.65;
 
-var geoURL = `http://api.openweathermap.org/geo/1.0/direct?q="${userSearchEl}"&limit=1&appid=ede68cfb4c128831ac4e54c459f93d77`
-var curURL = `https://api.openweathermap.org/data/2.5/weather?lat=${cityLat}&lon=${cityLon}&units=imperial&lastupdate&appid=ede68cfb4c128831ac4e54c459f93d77`
-var fiveDayURL = `api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=ede68cfb4c128831ac4e54c459f93d77`
 
 function getCityWeather(event) {
     event.preventDefault();
@@ -18,3 +15,74 @@ function getCityWeather(event) {
     currentWeather(cityInput);
     console.log(currentDate);
 }
+
+
+var currentWeather = function (cityName) {
+    // event.preventDefault();
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&lastupdate&appid=' + 'ede68cfb4c128831ac4e54c459f93d77'
+
+
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            var nameOfCity = document.createElement("h4")
+            nameOfCity.textContent = "City: " + data.name + " - " + currentDate
+            currentDayContainer.append(nameOfCity);
+            var cityTemp = document.createElement("p");
+            cityTemp.textContent = "Temp: " + data.main.temp
+            currentDayContainer.append(cityTemp);
+            var cityWind = document.createElement("p");
+            cityWind.textContent = "Wind: " + data.wind.speed
+            currentDayContainer.append(cityWind);
+            var cityHumidity = document.createElement("p");
+            cityHumidity.textContent = "Humidity: " + data.main.humidity
+            currentDayContainer.append(cityHumidity);
+
+            var cityLat = data.coord.lat
+            var cityLon = data.coord.lon
+            var fiveDayForecastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + cityLat + "&lon=" + cityLon + '&units=imperial&lastupdate&appid='+ 'f30dc0b71f772a037a522282770190be' 
+
+            fetch(fiveDayForecastURL)
+                .then(function (response) {
+                    return response.json();
+
+                })
+                .then(function (response) {
+                    console.log(response);
+                    for (let i = 1; i < 6; i++) {
+                        var fiveDayContainer = document.createElement("div");
+                        var forecastDate = document.createElement("p");
+                        forecastDate.textcontent = dayjs().add(i,"days").format('MM/DD/YYYY');
+                        fiveDayContainer.append(forecastDate)
+    
+                        var forecastTemp = document.createElement("p");
+                        forecastTemp.textContent = response.daily[i].temp.day
+                        fiveDayContainer.append(forecastTemp) 
+                        var fiveDayWind = document.createElement("p");
+                        fiveDayWind.textContent = response.daily[i].wind_speed
+                        fiveDayContainer.append(fiveDayWind)
+                        var fiveDayHumid = document.createElement("p");
+                        fiveDayHumid.textContent = response.daily[i].humidity
+                        fiveDayContainer.append(fiveDayHumid)
+
+                        fiveDay.append(fiveDayContainer)
+    
+                        var iconValue = response.daily[i].weather[0].icon;
+                        var icon = "http://openweathermap.org/img/wn/" + iconValue + ".png"
+                        var fiveDayIcon = document.createElement("IMG");
+                        fiveDayIcon.setAttribute("src", icon);
+                        fiveDayContainer.append(fiveDayIcon);
+                    };
+                });
+        });
+};
+
+
+
+
+
+
+searchFormEl.addEventListener('submit', getCityWeather);
