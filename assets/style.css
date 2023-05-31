@@ -31,10 +31,6 @@
     margin-top: 10px;
 }
 
-.five-day{
-    padding: 100px;
-}
-
 .card {
     margin-left: 10px;
     margin-bottom: 10px;
@@ -45,3 +41,26 @@
     padding: 15px;
     display: inline-flex;
 }  
+
+.fiveDay{
+    display: inline-block;
+    width: auto;
+    padding: 5px;
+    background-color: rgb(255, 149, 255);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 12px;
+}
+
+.recentSearch{
+    background-color: rgb(40, 41, 43);
+    margin: 0px;
+    color: white;
+}
+
+.search-results {
+    border: solid 3px black;
+    padding: 10px;
+    border-radius: 10px;
+}
+

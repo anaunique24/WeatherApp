@@ -45,42 +45,46 @@ var currentWeather = function (cityName) {
             var cityLon = data.coord.lon
             var fiveDayForecastURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + cityLat + "&lon=" + cityLon + '&units=imperial&lastupdate&appid='+ 'f30dc0b71f772a037a522282770190be' 
 
-            fetch(fiveDayForecastURL)
-                .then(function (response) {
-                    return response.json();
+fetch(fiveDayForecastURL)
+    .then(function (response) {
+    return response.json();
+})
+    .then(function (response) {
+        console.log(response);
+    for (let i = 1; i < 6; i++) {
+    var fiveDayContainer = document.createElement("div");
+    var forecastDate = document.createElement("p");
+    forecastDate.textContent = dayjs().add(i,"day").format('MM/DD/YYYY');
+    fiveDayContainer.append(forecastDate)
 
+
+    var forecastTemp = document.createElement("p");
+    forecastTemp.textContent = "Temp: " + response.daily[i].temp.day
+    fiveDayContainer.append(forecastTemp) 
+    var fiveDayWind = document.createElement("p");
+    fiveDayWind.textContent = "Wind: " + response.daily[i].wind_speed
+    fiveDayContainer.append(fiveDayWind)
+    var fiveDayHumid = document.createElement("p");
+    fiveDayHumid.textContent = "Humidity: " + response.daily[i].humidity
+    fiveDayContainer.append(fiveDayHumid)
+
+    fiveDay.append(fiveDayContainer)
+
+      console.log(forecastTemp);
+    
+    var iconValue = response.daily[i].weather[0].icon;
+    var icon = "http://openweathermap.org/img/wn/" + iconValue + ".png"
+    var fiveDayIcon = document.createElement("IMG");
+    fiveDayIcon.setAttribute("src", icon);
+    fiveDayContainer.append(fiveDayIcon);
+
+    fiveDayContainer.className = "fiveDay"
+
+ localStorage.setItem("Search History", cityName)
+                    }
                 })
-                .then(function (response) {
-                    console.log(response);
-                    for (let i = 1; i < 6; i++) {
-                        var fiveDayContainer = document.createElement("div");
-                        var forecastDate = document.createElement("p");
-                        forecastDate.textcontent = dayjs().add(i,"days").format('MM/DD/YYYY');
-                        fiveDayContainer.append(forecastDate)
-    
-                        var forecastTemp = document.createElement("p");
-                        forecastTemp.textContent = response.daily[i].temp.day
-                        fiveDayContainer.append(forecastTemp) 
-                        var fiveDayWind = document.createElement("p");
-                        fiveDayWind.textContent = response.daily[i].wind_speed
-                        fiveDayContainer.append(fiveDayWind)
-                        var fiveDayHumid = document.createElement("p");
-                        fiveDayHumid.textContent = response.daily[i].humidity
-                        fiveDayContainer.append(fiveDayHumid)
-
-                        fiveDay.append(fiveDayContainer)
-    
-                        var iconValue = response.daily[i].weather[0].icon;
-                        var icon = "http://openweathermap.org/img/wn/" + iconValue + ".png"
-                        var fiveDayIcon = document.createElement("IMG");
-                        fiveDayIcon.setAttribute("src", icon);
-                        fiveDayContainer.append(fiveDayIcon);
-                    };
-                });
-        });
-};
-
-
+        })
+}
 
 
 
